@@ -165,6 +165,8 @@ CREATE TABLE `proyectoJS`.`reservas` (
 
 -- Vista ya hecha para buscar vuelos:
 -- Ejemplo select * from buscarVuelos where precio <= 75 AND horaSalida <= 060000 AND horaLlegada <= 190000 AND Aerolínea IN ('Air France', 'British Airways');
+USE `proyectoJS`;
+
 CREATE 
     ALGORITHM = UNDEFINED 
     DEFINER = `root`@`localhost` 
