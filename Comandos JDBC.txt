@@ -1,0 +1,9 @@
+Comandos para asadmin
+
+- Primer comando
+asadmin create-jdbc-connection-pool --datasourceclassname=com.mysql.jdbc.jdbc2.optional.MysqlDataSource --restype=javax.sql.DataSource --property=user=2dawa:password=2dawA2!06:url="jdbc\:mysql\://localhost\:3306/proyectoJS" flightPool
+
+(Si por casualidad pregunta la id del pool, poner flightPool)
+
+- Segundo comando
+asadmin create-jdbc-resource --connectionpoolid flightPool jdbc/flight
