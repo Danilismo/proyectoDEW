@@ -21,6 +21,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(es.cifpcm.proyectojs.services.rest.FindFlight.class);
+        resources.add(es.cifpcm.proyectojs.services.rest.JsonFileSelector.class);
     }
     
 }

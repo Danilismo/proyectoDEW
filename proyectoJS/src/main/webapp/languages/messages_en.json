@@ -1,0 +1,16 @@
+{
+    "indexWelcome" : "Welcome!",
+    "indexSubwelcome" : "In our web you can see the avaliables airlines and buy your ticket.",
+    "menuTitle" : "Search your flight",
+    "menuAirlines" : "Desired airlines",
+    "menuSearch" : "Search flights!",
+    "flightTitle" : "Found flights",
+    "flightBuy" : "It's mine!",
+    "formPrice" : "Price",
+    "formDepartureHour" : "Departure hour",
+    "formArrivalHour" : "Arrival hour",
+    "formFlight" : "Flight",
+    "formOriginAirport" : "Origin airport",
+    "formDestinationAirport" : "Destination airport",
+    "formCompany" : "Company"
+}

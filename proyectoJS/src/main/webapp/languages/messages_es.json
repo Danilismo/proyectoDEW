@@ -1,0 +1,16 @@
+{
+    "indexWelcome" : "¡Bienvenido!",
+    "indexSubwelcome" : "En nuestra página web podrás ver la líneas disponibles y reservar tu billete.",
+    "menuTitle" : "Busca tu vuelo",
+    "menuAirlines" : "Aerolíneas deseadas",
+    "menuSearch" : "¡Buscar Vuelos!",
+    "flightTitle" : "Vuelos encontrados",
+    "flightBuy" : "¡Mío!",
+    "formPrice" : "Precio",
+    "formDepartureHour" : "Hora de salida",
+    "formArrivalHour" : "Hora de llegada",
+    "formFlight" : "Vuelo",
+    "formOriginAirport" : "Aeropuerto de origen",
+    "formDestinationAirport" : "Aeropuerto de destino",
+    "formCompany" : "Compañía"
+}
