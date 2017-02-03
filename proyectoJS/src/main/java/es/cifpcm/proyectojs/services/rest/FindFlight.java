@@ -26,4 +26,5 @@ public class FindFlight {
         logger.info("FindFlight_read()");
         return DaoFactory.getInstance().getFlightDao().select(price, departure, arrive, airlines);
     }
+    //Ejemplo http://localhost:8080/proyectoJS/webresources/find/100/150000/200000/Iberia
 }

@@ -24,28 +24,40 @@ public class MySqlFlightDao implements FlightDao {
     @Override
     public List<Flight> select(Integer price, String departure, String arrive, List<String> airlines) {
         try (Connection connection = CON_PRO.getConnection()) {
-            PreparedStatement s;
             String query;
+            PreparedStatement s;
             if (airlines == null) {
                 query = "SELECT * FROM buscarVuelos WHERE precio <= ? AND horaSalida <= ? AND horaLlegada <= ?";
-                s = connection.prepareCall(query);
+                s = connection.prepareStatement(query);
                 s.setInt(1, price);
                 s.setString(2, departure);
                 s.setString(3, arrive);
             } else {
-                query = "SELECT * FROM buscarVuelos WHERE precio <= ? AND horaSalida <= ? AND horaLlegada <= ? AND Aerolínea IN (?)";
-                s = connection.prepareCall(query);
-                //MYSQL no admite Array, toca arreglarlo con bucles
-                Array array = connection.createArrayOf("VARCHAR", airlines.toArray());
+                query = "SELECT * FROM buscarVuelos WHERE precio <= ? AND horaSalida <= ? AND horaLlegada <= ? AND Aerolínea IN (";
+                String temp = "";
+                for (String thisOne : airlines) {
+                    temp += ",?";
+                }
+                temp = temp.replaceFirst(",", "");
+                temp += ")";
+                query = query + temp;
+                s = connection.prepareStatement(query);
+                /*MYSQL no admite Array, toca arreglarlo con bucles
+                String[] array = new String[airlines.size()];
+                array = airlines.toArray(array);*/
                 s.setInt(1, price);
                 s.setString(2, departure);
                 s.setString(3, arrive);
-                s.setArray(4, array);
+                int number = 4;
+                for (String thisOne : airlines) {
+                    s.setString(number, thisOne);
+                    number++;
+                }
             }
-            ResultSet rs = s.executeQuery(query);
+            ResultSet rs = s.executeQuery();
             List<Flight> list = new ArrayList<>();
-            while (rs.next()){
-                Flight thisOne = new Flight(rs.getInt("nVuelo"), rs.getString("Aeropuerto de Origen"), rs.getString("Ciudad de Origen"), rs.getString("País de Origen"), rs.getTimestamp("horaSalida"), rs.getString("Aeropuerto de Destino"), rs.getString("Ciudad de Destino"), rs.getString("País de Destino"), rs.getTimestamp("horaDestino"), rs.getFloat("precio"), rs.getInt("capacidad"), rs.getString("Aerolínea"));
+            while (rs.next()) {
+                Flight thisOne = new Flight(rs.getInt("nVuelo"), rs.getString("Aeropuerto de Origen"), rs.getString("Ciudad de Origen"), rs.getString("País de Origen"), rs.getTime("horaSalida"), rs.getString("Aeropuerto de Destino"), rs.getString("Ciudad de Destino"), rs.getString("País de Destino"), rs.getTime("horaLlegada"), rs.getFloat("precio"), rs.getInt("capacidad"), rs.getString("Aerolínea"));
                 list.add(thisOne);
             }
             return list;

@@ -1,6 +1,6 @@
 package es.cifpcm.proyectojs.pojo;
 
-import java.sql.Timestamp;
+import java.sql.Time;
 
 public class Flight {
     
@@ -8,11 +8,11 @@ public class Flight {
     private String originAirport;
     private String originCity;
     private String originCountry;
-    private Timestamp departure;
+    private Time departure;
     private String destinationAirport;
     private String destinationCity;
     private String destinationCountry;
-    private Timestamp arrive;
+    private Time arrive;
     private Float price;
     private Integer capacity;
     private String airline;
@@ -20,7 +20,7 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(Integer number, String originAirport, String originCity, String originCountry, Timestamp departure, String destinationAirport, String destinationCity, String destinationCountry, Timestamp arrive, Float price, Integer capacity, String airline) {
+    public Flight(Integer number, String originAirport, String originCity, String originCountry, Time departure, String destinationAirport, String destinationCity, String destinationCountry, Time arrive, Float price, Integer capacity, String airline) {
         this.number = number;
         this.originAirport = originAirport;
         this.originCity = originCity;
@@ -67,11 +67,11 @@ public class Flight {
         this.originCountry = originCountry;
     }
 
-    public Timestamp getDeparture() {
+    public Time getDeparture() {
         return departure;
     }
 
-    public void setDeparture(Timestamp departure) {
+    public void setDeparture(Time departure) {
         this.departure = departure;
     }
 
@@ -99,11 +99,11 @@ public class Flight {
         this.destinationCountry = destinationCountry;
     }
 
-    public Timestamp getArrive() {
+    public Time getArrive() {
         return arrive;
     }
 
-    public void setArrive(Timestamp arrive) {
+    public void setArrive(Time arrive) {
         this.arrive = arrive;
     }
 
