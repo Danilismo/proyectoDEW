@@ -3,7 +3,6 @@ package es.cifpcm.proyectojs.dao;
 import es.cifpcm.proyectojs.interfaces.ConnectionProvider;
 import es.cifpcm.proyectojs.interfaces.FlightDao;
 import es.cifpcm.proyectojs.pojo.Flight;
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
