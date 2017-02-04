@@ -5,10 +5,18 @@ function languageSelection(idioma)
         var language = idioma;
 }
 
-
-
 languageSelection.prototype = {
 
+    setLanguage : function(language)
+    {
+        this.language = language;
+    },
+    
+    getLanguage : function()
+    {
+        return this.language;
+    },
+    
     makeConnection : function()
     {
 	this.connection = new XMLHttpRequest();
@@ -19,7 +27,7 @@ languageSelection.prototype = {
             that.checkConnection(that.connection); 
         };
         console.log("languages/messages_" + that.language + ".json");
-  	this.connection.open("GET", "webresources/language", true);
+  	this.connection.open("GET", "http://localhost:8080/proyectoJS/webresources/language/es", true);
         
   	this.connection.send();
     },
@@ -40,7 +48,7 @@ languageSelection.prototype = {
         $("#indexSubWelcome").text(this.messages["indexSubWelcome"]);
         $("#menuTitle").text(this.messages["menuTitle"]);
     }
-}
+};
 
 $(document).ready(function() {
 

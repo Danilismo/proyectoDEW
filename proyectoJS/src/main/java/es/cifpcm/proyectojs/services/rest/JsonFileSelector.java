@@ -27,10 +27,11 @@ public class JsonFileSelector {
     @GET
     @Path("{language}")
     @Produces(MediaType.APPLICATION_JSON)
-    public FileReader getLanguage(@PathParam("language") String language) throws FileNotFoundException
+    public String getLanguage(@PathParam("language") String language) throws FileNotFoundException
     {
         logger.info("JsonFileSelector_getLanguage()");
-        FileReader file = new FileReader("/proyectoJS/languages/messages_" + language + ".json");
+        //FileReader file = new FileReader("src/main/resources/messages_es.json");
+        String file = JsonFileSelector.class.getResourceAsStream("/resources/messages_es.json").toString();
         return file;
     } 
 }
