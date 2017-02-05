@@ -25,7 +25,7 @@ public class MySqlFlightDao implements FlightDao {
         try (Connection connection = CON_PRO.getConnection()) {
             String query;
             PreparedStatement s;
-            if (airlines == null) {
+            if (airlines.isEmpty()) {
                 query = "SELECT * FROM buscarVuelos WHERE precio <= ? AND horaSalida <= ? AND horaLlegada <= ?";
                 s = connection.prepareStatement(query);
                 s.setInt(1, price);

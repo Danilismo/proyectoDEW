@@ -1,12 +1,18 @@
 package es.cifpcm.proyectojs.pojo;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 
-public class FindParams {
+@XmlRootElement
+public class FindParams implements Serializable {
     private Integer price;
     private String departure;
     private String arrive;
     private List<String> airlines;
+
+    public FindParams() {
+    }
 
     public FindParams(Integer price, String departure, String arrive, List<String> airlines) {
         this.price = price;
