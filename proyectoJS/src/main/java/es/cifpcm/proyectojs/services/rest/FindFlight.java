@@ -38,6 +38,7 @@ public class FindFlight {
     @Path("airlines")
     @Produces(MediaType.APPLICATION_JSON)
     public String airlines(){
+        logger.debug("Airlines");
         return DaoFactory.getInstance().getFlightDao().airlines();
     }
 }
