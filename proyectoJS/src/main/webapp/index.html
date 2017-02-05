@@ -18,7 +18,7 @@
   <link rel="stylesheet" type="text/css" href="CSS/footer.css" media="screen" />
 
 
-  <title>Document</title>
+  <title>DauneyLines</title>
 </head>
 
 <body>
@@ -54,12 +54,12 @@
         </tr>
         <tr>
           <td widtH="50%" class="derecha" colspan="2"><label for="departure">Hora de llegada:</label></td>
-          <td widtH="50%" class="izquierda" colspan="2"><input id="departure" class="timepicker"></td>
+          <td widtH="50%" class="izquierda" colspan="2"><input id="departure"  size="1" maxlength="5" class="timepicker"></td>
 
         </tr>
         <tr>
           <td widtH="50%" class="derecha" colspan="2"><label for="arrive">Hora de Salida:</label></td>
-          <td widtH="50%" class="izquierda" colspan="2"><input id="arrive" class="timepicker"></td>
+          <td widtH="50%" class="izquierda" colspan="2"><input id="arrive"  size="1" maxlength="5" class="timepicker"></td>
         </tr>
         <tr>
           <td colspan="4">Aerolíneas deseadas</td>
@@ -79,7 +79,22 @@
   </div>
 
   <div id="section">
-    <div id="vuelo"></div>
+    <div id="vuelo">
+         <table>
+              <tr>
+                   <td rowspan="2">Vuelo Nº XXX</td>
+                   <td>Aeropuerto de origen: XXXX</td>
+                   <td>Hora de salida:00:00</td>
+                   <td>Compañía Cutres SA</td>
+                   <td rowspan="2"><input type="button" value="Comprar"></td></td>
+              </tr>
+              <tr>
+                   <td>Aeropuerto de destino: XXXXX</td>
+                   <td>Hora de llegada:13:54</td>
+                   <td>Precio:XXX€</td>
+              </tr>
+         </table>
+    </div>
     <div id="vuelo"></div>
     <div id="vuelo"></div>
     <div id="vuelo"></div>
