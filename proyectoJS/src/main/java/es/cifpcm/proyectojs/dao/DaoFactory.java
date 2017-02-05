@@ -54,4 +54,8 @@ public class DaoFactory implements ConnectionProvider {
     public MySqlFlightDao getFlightDao(){
         return new MySqlFlightDao(this);
     }
+    
+    public MySqlInsertReservationDao getInsertReservationDao() {
+        return new MySqlInsertReservationDao(this);
+    }
 }
