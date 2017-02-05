@@ -139,8 +139,7 @@ CREATE TABLE `proyectoJS`.`vuelo` (
     `plazas_libres` INT NULL DEFAULT NULL,
     `estado_plazas` BIGINT UNSIGNED NULL DEFAULT null,
     PRIMARY KEY (`id_vuelo`),
-    UNIQUE INDEX `id_vueloGenerico_UNIQUE` (`id_vueloGenerico` ASC),
-    UNIQUE INDEX `fecha_UNIQUE` (`fecha` ASC),
+    UNIQUE INDEX `unique_index` (`id_vueloGenerico`, `fecha`),
     CONSTRAINT `fk_vuelo_vueloGenerico` FOREIGN KEY (`id_vueloGenerico`)
         REFERENCES `proyectoJS`.`vueloGenerico` (`nVuelo`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -155,9 +154,7 @@ CREATE TABLE `proyectoJS`.`reservas` (
     `tarjeta` BIGINT(16) UNSIGNED NOT NULL,
     `importe` DECIMAL NOT NULL,
     PRIMARY KEY (`n_reserva`),
-    UNIQUE INDEX `id_vuelo_UNIQUE` (`id_vuelo` ASC),
-    UNIQUE INDEX `nombre_UNIQUE` (`nombre` ASC),
-    UNIQUE INDEX `apellidos_UNIQUE` (`apellidos` ASC),
+    UNIQUE INDEX `unique_index` (`id_vuelo` , `nombre` , `apellidos`),
     CONSTRAINT `fk_reservas_vuelo` FOREIGN KEY (`id_vuelo`)
         REFERENCES `proyectoJS`.`vuelo` (`id_vuelo`)
         ON DELETE NO ACTION ON UPDATE NO ACTION
