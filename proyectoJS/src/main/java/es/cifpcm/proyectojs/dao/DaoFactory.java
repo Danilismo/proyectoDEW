@@ -1,6 +1,7 @@
 package es.cifpcm.proyectojs.dao;
 
 import es.cifpcm.proyectojs.interfaces.ConnectionProvider;
+import es.cifpcm.proyectojs.interfaces.InsertReservationDao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.naming.InitialContext;
@@ -55,7 +56,7 @@ public class DaoFactory implements ConnectionProvider {
         return new MySqlFlightDao(this);
     }
     
-    public MySqlInsertReservationDao getInsertReservationDao() {
+    public InsertReservationDao getInsertReservationDao() {
         return new MySqlInsertReservationDao(this);
     }
 }

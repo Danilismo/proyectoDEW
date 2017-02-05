@@ -13,4 +13,5 @@ import es.cifpcm.proyectojs.pojo.Reservation;
  */
 public interface InsertReservationDao {
     boolean set(Reservation reservation);
+    boolean validate(Reservation reservation);
 }

@@ -5,6 +5,8 @@
  */
 package es.cifpcm.proyectojs.pojo;
 
+import java.math.BigInteger;
+
 /**
  *
  * @author danil
@@ -16,13 +18,13 @@ public class Reservation {
     private String name;
     private String surname;
     private Integer telf;
-    private Integer card;
+    private BigInteger card;
     private Float amount;
 
     public Reservation() {
     }
 
-    public Reservation(Integer id_flight, String name, String surname, Integer telf, Integer card, Float amount) {
+    public Reservation(Integer id_flight, String name, String surname, Integer telf, BigInteger card, Float amount) {
         this.id_flight = id_flight;
         this.name = name;
         this.surname = surname;
@@ -71,11 +73,11 @@ public class Reservation {
         this.telf = telf;
     }
 
-    public Integer getCard() {
+    public BigInteger getCard() {
         return card;
     }
 
-    public void setCard(Integer card) {
+    public void setCard(BigInteger card) {
         this.card = card;
     }
 
