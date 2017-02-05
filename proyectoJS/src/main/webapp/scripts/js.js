@@ -1,9 +1,25 @@
-$(document).ready(function() {
+jQuery(document).ready(function() {
+	//Boton Para abrir el menú de busqueda.
+	$("#ButtonSearch").on("click", function() {
+		$("#aside").slideToggle();
+		if ($(this).css("color") == "rgb(211, 211, 211)") {
+			$(this).css({
+				"background-color": "lightgray",
+				"color": "#6495ED"
+			});
+		} else {
+
+			$(this).css({
+				"background-color": "#6495ED",
+				"color": "lightgray"
+			});
+		}
+	});
 	getRange();
 	setHour();
 	getAirlines();
 	setButton();
-})
+});
 
 function getRange() {
 	var xhttp = new XMLHttpRequest();
@@ -29,21 +45,23 @@ function setRange(data) {
 			$("#amount").val(ui.value + " €");
 		}
 	});
+	$("#min").text(prices[0]);
+	$("#max").text(prices[1]);
 	$("#amount").val($("#slider").slider("value") + " €");
 }
 
 function setHour() {
-  $('.timepicker').timepicker({
-    timeFormat: 'HH:mm ',
-    interval: 30,
-    minTime: '0',
-    maxTime: '23:30',
-    defaultTime: '11',
-    startTime: '0',
-    dynamic: false,
-    dropdown: true,
-    scrollbar: true
-});
+	$('.timepicker').timepicker({
+		timeFormat: 'HH:mm ',
+		interval: 30,
+		minTime: '0',
+		maxTime: '23:30',
+		defaultTime: '11',
+		startTime: '0',
+		dynamic: false,
+		dropdown: true,
+		scrollbar: true
+	});
 }
 
 function getAirlines() {
@@ -81,13 +99,12 @@ function setButton() {
 			arrive: ($("#arrive").val() + "00").replace(/:|\s/gi, ""),
 			airlines: $("#airlines").val()
 		});
-    console.log(findParams)
-    $.ajax({
-  		url: "http://localhost:8080/proyectoJS/webresources/find",
-  		type: "POST",
-  		contentType: 'application/json',
-  		data: findParams,
-  		dataType: "json"
-  	});
+		$.ajax({
+			url: "http://localhost:8080/proyectoJS/webresources/find",
+			type: "POST",
+			contentType: 'application/json',
+			data: findParams,
+			dataType: "json"
+		});
 	})
 }

@@ -1,0 +1,67 @@
+html, body, #header, #aside , #section, #footer
+{
+     position:relative;
+     display:flex;
+     align-items: center;
+     align-content: center;
+     justify-content: center;
+     flex-direction:column;
+}
+html,body
+{
+     margin:0px;
+     height:100%;
+     padding:0px;
+     width:100%;
+     background-color:lightgray;
+     font-size:15px;
+     min-width:360px;
+     min-height:640px;
+     overflow:hidden;
+}
+#header, #aside , #section, #footer
+{
+     width:100%;
+     padding:0px;
+     margin:0px;
+     box-sizing:border-box;
+}
+#header
+{
+     height:20%;
+     min-height:70px;
+}
+
+#aside
+{
+     position:absolute;
+     z-index:1;
+     left:0px;
+     top:20%;
+     height:80%;
+
+}
+#section
+{
+     height:70%;
+     min-height:200px;
+}
+#footer
+{
+     height:10%;
+     min-height:50px;
+}
+
+@media only screen and (min-width:700px)
+{
+     #aside
+     {
+          width:20%;
+          height:70%;
+     }
+     #section
+     {
+          width:60%;
+          height:70%;
+     }
+}
