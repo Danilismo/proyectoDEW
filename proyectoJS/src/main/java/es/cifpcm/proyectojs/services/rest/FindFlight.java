@@ -33,4 +33,11 @@ public class FindFlight {
         logger.debug("Range");
         return DaoFactory.getInstance().getFlightDao().range();
     }
+    
+    @GET
+    @Path("airlines")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String airlines(){
+        return DaoFactory.getInstance().getFlightDao().airlines();
+    }
 }

@@ -83,4 +83,22 @@ public class MySqlFlightDao implements FlightDao {
         }
     }
 
+    @Override
+    public String airlines() {
+        try(Connection connection = CON_PRO.getConnection()){
+            String toReturn = "";
+            String query = "SELECT nombre from aerolinea";
+            PreparedStatement s = connection.prepareStatement(query);
+            ResultSet rs = s.executeQuery();
+            while (rs.next()){
+                toReturn += "_" + rs.getString("nombre");
+            }
+            toReturn = toReturn.replaceFirst("_", "");
+            return toReturn;
+        } catch (SQLException ex) {
+            logger.error("airlines", ex);
+            return null;
+        }
+    }
+
 }
