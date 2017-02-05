@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface FlightDao {
     List<Flight> select(Integer price, String departure, String arrive, List<String> airlines);
-    
+    String range();
 }

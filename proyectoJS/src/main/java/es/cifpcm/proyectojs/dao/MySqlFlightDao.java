@@ -66,4 +66,21 @@ public class MySqlFlightDao implements FlightDao {
         }
     }
 
+    @Override
+    public String range() {
+        try(Connection connection = CON_PRO.getConnection()){
+            String toReturn = null;
+            String query = "SELECT MIN(precio), MAX(precio) from vueloGenerico";
+            PreparedStatement s = connection.prepareStatement(query);
+            ResultSet rs = s.executeQuery();
+            if (rs.next()){
+                toReturn = Float.toString(rs.getFloat("MIN(precio)")) + "_" + Float.toString(rs.getFloat("MAX(precio)"));
+            }
+            return toReturn;
+        } catch (SQLException ex) {
+            logger.error("range", ex);
+            return null;
+        }
+    }
+
 }

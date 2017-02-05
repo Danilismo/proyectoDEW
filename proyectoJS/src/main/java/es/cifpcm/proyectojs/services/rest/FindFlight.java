@@ -5,6 +5,7 @@ import es.cifpcm.proyectojs.pojo.FindParams;
 import es.cifpcm.proyectojs.pojo.Flight;
 import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -23,5 +24,13 @@ public class FindFlight {
     public List<Flight> read(FindParams findParams){
         logger.debug("Find");
         return DaoFactory.getInstance().getFlightDao().select(findParams.getPrice(), findParams.getDeparture(), findParams.getArrive(), findParams.getAirlines());
+    }
+    
+    @GET
+    @Path("range")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String range(){
+        logger.debug("Range");
+        return DaoFactory.getInstance().getFlightDao().range();
     }
 }
