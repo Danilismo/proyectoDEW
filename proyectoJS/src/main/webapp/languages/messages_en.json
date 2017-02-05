@@ -12,5 +12,10 @@
     "formFlight" : "Flight",
     "formOriginAirport" : "Origin airport",
     "formDestinationAirport" : "Destination airport",
-    "formCompany" : "Company"
+    "formCompany" : "Company",
+    "name" : "Name",
+    "surname" : "Surname",
+    "telephone" : "Telephone",
+    "creditCard" : "Credit card",
+    "reserve" : "Reserve"
 }

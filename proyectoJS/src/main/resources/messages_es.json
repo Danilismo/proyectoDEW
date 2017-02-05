@@ -12,5 +12,10 @@
     "formFlight" : "Vuelo",
     "formOriginAirport" : "Aeropuerto de origen",
     "formDestinationAirport" : "Aeropuerto de destino",
-    "formCompany" : "Compañía"
+    "formCompany" : "Compañía",
+    "name" : "Nombre",
+    "surname" : "Apellidos",
+    "telephone" : "Teléfono",
+    "creditCard" : "Tarjeta de crédito",
+    "reserve" : "Reservar"
 }
