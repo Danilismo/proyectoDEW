@@ -1,4 +1,56 @@
-jQuery(document).ready(function() {
+
+
+var numero = "011010101010111101010000011001100001";
+var nButacas=0;
+var precioVuelo;
+
+ function openModal(that)
+ {
+         nButacas=0;
+         precioVuelo = $(that).closest(".vuelo").find(".Precio").text();
+         $("#modal").slideToggle();
+         $("#modal").css("display", "flex");
+         var x = 15;
+         var y = -50;
+         var contador = 0;
+         var mapaButacas = document.getElementById("aButacas");
+         for(var i = 0; i < numero.length;i++ , contador++)
+         {
+              if(contador == 2)
+              {
+                    contador = -3;
+                    i--;
+              }
+              else
+              {
+                   mapaButacas.innerHTML +=" <use xlink:href='#butaca" + numero[i] + "' class='butaca' x='" + x +"' y='" + y + "' width='30px' height='30px' />";
+              }
+             x = x + 35;
+             if(x > 160)
+             {
+                  y = y + 35;
+                  x = 15;
+             }
+         }
+         $("use").on("click", color);
+         function color()
+         {
+             if ($(this).attr("xlink:href") == "#butaca0")
+             {
+                   $(this).attr("xlink:href","#butaca2");
+                   nButacas++;
+             }
+             else if($(this).attr("xlink:href") == "#butaca2")
+             {
+                   $(this).attr("xlink:href","#butaca0");
+                   nButacas--;
+             }
+             $("#nButacas").text(nButacas);
+             $("#pTotal").text(parseInt(precioVuelo) * nButacas + "€")
+         }
+ }
+
+ jQuery(document).ready(function() {
 	//Boton Para abrir el menú de busqueda.
 	$("#ButtonSearch").on("click", function() {
 		$("#aside").slideToggle();
