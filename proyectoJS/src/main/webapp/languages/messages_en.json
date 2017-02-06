@@ -15,6 +15,7 @@
  "formOriginAirport" : "Origin airport",
  "formDestinationAirport" : "Destination airport",
  "formCompany" : "Company",
+ "formAirline" : "Airline",
  "name" : "Name",
  "surname" : "Surname",
  "telephone" : "Telephone",

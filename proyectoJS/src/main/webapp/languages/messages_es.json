@@ -15,6 +15,7 @@
  "formOriginAirport" : "Aeropuerto de origen",
  "formDestinationAirport" : "Aeropuerto de destino",
  "formCompany" : "Compañía",
+ "formAirline" : "Aerolínea",
  "name" : "Nombre",
  "surname" : "Apellidos",
  "telephone" : "Teléfono",

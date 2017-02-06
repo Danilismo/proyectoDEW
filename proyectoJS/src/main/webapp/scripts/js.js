@@ -160,11 +160,12 @@ function setButton() {
                 for (var i = 0; i < data.length; i++) {
                     $("#section").append(new aFlight(data[i]));
                 }
+                languageSelector.fillOutputs();
             }
         });
     })
 }
 
 function aFlight(data) {
-    return $("<div class='vuelo'></div>").append($("<table></table>").append($("<tr></tr>").append($("<td rowspan='2'><div id='formFlight'></div> " + data.number + "</td>")).append($("<td><div id='formOriginAirport'></div> " + data.originAirport + ", " + data.originCity + "</td>")).append($("<td><div id='formDepartureHour'></div> " + data.departure + "</td>")).append($("<td>" + data.airline + "</td>"))).append($("<tr></tr>").append($("<td><div id='formDestinationAirport'></div> " + data.destinationAirport + ", " + data.destinationCity + "</td>")).append($("<td><div id='formArrivalHour'></div> " + data.arrive + "</td>")).append($("<td><div id='formPrice'></div> " + data.price + " €</td>"))));
+    return $("<div class='vuelo'></div>").append($("<table></table>").append($("<tr></tr>").append($("<td rowspan='2'><div class='formFlight'></div> " + data.number + "</td>")).append($("<td><div class='formOriginAirport'></div> " + data.originAirport + ", " + data.originCity + "</td>")).append($("<td><div class='formDepartureHour'></div> " + data.departure + "</td>")).append($("<td><div class ='formAirline'></div>" + data.airline + "</td>"))).append($("<tr></tr>").append($("<td><div class='formDestinationAirport'></div> " + data.destinationAirport + ", " + data.destinationCity + "</td>")).append($("<td><div class='formArrivalHour'></div> " + data.arrive + "</td>")).append($("<td><div class='formPrice'></div> " + data.price + " €</td>"))));
 }

@@ -35,17 +35,19 @@ languageSelection.prototype = {
     {
 	if(connection.readyState == 4)
 	{             
-            console.log(JSON.parse(connection.responseText));
             this.messages = JSON.parse(connection.responseText);
-            this.fillOutputs();
 	}
     },
     
     fillOutputs : function()
     {
-        $("#indexWelcome").text(this.messages["indexWelcome"]);
-        $("#indexSubWelcome").text(this.messages["indexSubWelcome"]);
-        $("#menuTitle").text(this.messages["menuTitle"]);
+        $(".formFlight").text(this.messages["formFlight"]);
+        $(".formOriginAirport").text(this.messages["formOriginAirport"]);
+        $(".formDepartureHour").text(this.messages["formDepartureHour"]);
+        $(".formAirline").text(this.messages["formAirline"]);
+        $(".formDestinationAirport").text(this.messages["formDestinationAirport"]);
+        $(".formArrivalHour").text(this.messages["formArrivalHour"]);
+        $(".formPrice").text(this.messages["formPrice"]);
     }
 };
 
