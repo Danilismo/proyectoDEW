@@ -1,6 +1,5 @@
 package es.cifpcm.proyectojs.dao;
 
-import es.cifpcm.proyectojs.interfaces.AvaliablesSeatsDao;
 import es.cifpcm.proyectojs.interfaces.ConnectionProvider;
 import es.cifpcm.proyectojs.interfaces.InsertReservationDao;
 import java.sql.Connection;
@@ -59,9 +58,5 @@ public class DaoFactory implements ConnectionProvider {
     
     public InsertReservationDao getInsertReservationDao() {
         return new MySqlInsertReservationDao(this);
-    }
-    
-    public AvaliablesSeatsDao getAvaliablesSeatsDao() {
-        return new MySqlAvaliablesSeatsDao(this);
     }
 }

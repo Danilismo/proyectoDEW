@@ -1,44 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package es.cifpcm.proyectojs.pojo;
 
 import java.math.BigInteger;
+import java.sql.Date;
 
-/**
- *
- * @author danil
- */
 public class Reservation {
     
-    private Integer id_reservation;
     private Integer id_flight;
     private String name;
     private String surname;
     private Integer telf;
     private BigInteger card;
     private Float amount;
+    private String seats_status;
+    private Date date;
 
     public Reservation() {
     }
 
-    public Reservation(Integer id_flight, String name, String surname, Integer telf, BigInteger card, Float amount) {
+    public Reservation(Integer id_flight, String name, String surname, Integer telf, BigInteger card, Float amount, String seats_status, Date date) {
         this.id_flight = id_flight;
         this.name = name;
         this.surname = surname;
         this.telf = telf;
         this.card = card;
         this.amount = amount;
-    }
-
-    public Integer getId_reservation() {
-        return id_reservation;
-    }
-
-    public void setId_reservation(Integer id_reservation) {
-        this.id_reservation = id_reservation;
+        this.seats_status = seats_status;
+        this.date = date;
     }
 
     public Integer getId_flight() {
@@ -87,5 +74,21 @@ public class Reservation {
 
     public void setAmount(Float amount) {
         this.amount = amount;
+    }
+
+    public String getSeats_status() {
+        return seats_status;
+    }
+
+    public void setSeats_status(String seats_status) {
+        this.seats_status = seats_status;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
