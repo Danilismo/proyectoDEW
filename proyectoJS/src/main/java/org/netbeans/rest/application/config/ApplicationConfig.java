@@ -20,6 +20,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(es.cifpcm.proyectojs.services.rest.ConsultDate.class);
         resources.add(es.cifpcm.proyectojs.services.rest.FindFlight.class);
         resources.add(es.cifpcm.proyectojs.services.rest.JsonFileSelector.class);
         resources.add(es.cifpcm.proyectojs.services.rest.Reserve.class);
