@@ -1,19 +1,40 @@
 
 
-var numero = "011010101010111101010000011001100001";
+var numero = "";
 var nButacas = 0;
 var precioVuelo;
+var reservas=0;
+var vueloactual;
 
-function openModal(that)
+function openDialog(that)
+{
+     vueloactual = $(that).closest(".vuelo");
+     precioVuelo = vueloactual.find(".Precio").text();
+     $( function() {
+          $( "#dialog" ).dialog();
+     } );
+     $( function() {
+          $( "#datepicker" ).datepicker();
+          $( "#datepicker" ).datepicker( "option", "dateFormat","yy-mm-dd");
+     });
+}
+function openModal()
+{
+    takeDate();
+    setTimeout(print,2000);
+    
+}
+function print()
 {
     nButacas = 0;
-    precioVuelo = $(that).closest(".vuelo").find(".Precio").text();
     $("#modal").slideToggle();
+    $("#dialog").dialog('close');
     $("#modal").css("display", "flex");
     var x = 15;
     var y = -50;
     var contador = 0;
     var mapaButacas = document.getElementById("aButacas");
+    mapaButacas.innerHTML = "";
     for (var i = 0; i < numero.length; i++, contador++)
     {
         if (contador == 2)
@@ -31,6 +52,7 @@ function openModal(that)
             x = 15;
         }
     }
+    var bigInt = creaBigInt();
     $("use").on("click", color);
     function color()
     {
@@ -47,7 +69,51 @@ function openModal(that)
         $("#pTotal").text(parseInt(precioVuelo) * nButacas + "€")
     }
 }
+    
+function creaBigInt()
+ {
+      var listaUses = $("#aButacas").children("use");
+      var bigInt = "";
 
+      for(var i = 0;i < listaUses.length;i++)
+      {
+           if($(listaUses[i]).attr("xlink:href")== "#butaca0")
+           {
+                bigInt += "0";
+           }
+           else if ($(listaUses[i]).attr("xlink:href")== "#butaca1")
+           {
+                bigInt += "1";
+           }
+           else if($(listaUses[i]).attr("xlink:href")== "#butaca2")
+           {
+                bigInt += "1";
+                reservas++;
+           }
+      }
+      return bigInt;
+ }
+ function closeModal()
+{
+     $("#modal").slideToggle();
+}
+function takeDate() {
+        var findParams = JSON.stringify({
+            nVuelo: $(vueloactual).find(".formFlight").parent().text().split(" ")[1],
+            fecha: $("#datepicker").val()
+        });
+        $.ajax({
+            url: "http://localhost:8080/proyectoJS/webresources/consultDate",
+            type: "POST",
+            contentType: 'application/json',
+            data: findParams,
+            dataType: "json",
+            success: function (data) {
+                numero = data.toString();
+                console.log(numero);
+            }
+        });
+}
 jQuery(document).ready(function () {
     //Boton Para abrir el menú de busqueda.
     $("#ButtonSearch").on("click", function () {
@@ -167,5 +233,5 @@ function setButton() {
 }
 
 function aFlight(data) {
-    return $("<div class='vuelo'></div>").append($("<table></table>").append($("<tr></tr>").append($("<td rowspan='2'><div class='formFlight'></div> " + data.number + "</td>")).append($("<td><div class='formOriginAirport'></div> " + data.originAirport + ", " + data.originCity + "</td>")).append($("<td><div class='formDepartureHour'></div> " + data.departure + "</td>")).append($("<td><div class ='formAirline'></div>" + data.airline + "</td>"))).append($("<tr></tr>").append($("<td><div class='formDestinationAirport'></div> " + data.destinationAirport + ", " + data.destinationCity + "</td>")).append($("<td><div class='formArrivalHour'></div> " + data.arrive + "</td>")).append($("<td><div class='formPrice'></div> " + data.price + " €</td>"))));
+    return $("<div class='vuelo'></div>").append($("<table></table>").append($("<tr></tr>").append($("<td rowspan='2'><div class='formFlight'></div> " + data.number + "</td>")).append($("<td><div class='formOriginAirport'></div> " + data.originAirport + ", " + data.originCity + "</td>")).append($("<td><div class='formDepartureHour'></div> " + data.departure + "</td>")).append($("<td><div class ='formAirline'></div>" + data.airline + "</td>")).append($("<td rowspan='2'><input type='button' onclick='openDialog(this)' value='Comprar'></td></td>"))).append($("<tr></tr>").append($("<td><div class='formDestinationAirport'></div> " + data.destinationAirport + ", " + data.destinationCity + "</td>")).append($("<td><div class='formArrivalHour'></div> " + data.arrive + "</td>")).append($("<td><div class='formPrice'></div> " + data.price + " €</td>"))));
 }

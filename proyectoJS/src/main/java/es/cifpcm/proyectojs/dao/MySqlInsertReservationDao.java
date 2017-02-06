@@ -91,18 +91,24 @@ public class MySqlInsertReservationDao implements InsertReservationDao {
 
     @Override
     public String getSeats(DateParams dateParams) {
-        String toReturn = null;
+        String toReturn = "";
         try (Connection connection = CON_PRO.getConnection()) {
             String query = "SELECT estado_plazas FROM vuelo WHERE id_vueloGenerico = ? AND fecha = ?";
             PreparedStatement s = connection.prepareStatement(query);
             s.setInt(1, dateParams.getnVuelo());
             s.setDate(2, dateParams.getFecha());
             ResultSet rs = s.executeQuery();
-            if (rs.next()) {
-                toReturn = rs.getString("estado_plazas");
-                if (toReturn == null) {
-                    Integer capacidad;
-                    String query2 = "SELECT capacidad FROM vueloGenerico WHERE id_vueloGenerico = ?";
+            Integer hola = rs.getRow();
+            if (rs.getRow() != 0)
+            {
+                if (rs.next()) {
+                    toReturn = rs.getString("estado_plazas");
+                }
+            }
+            else
+            {
+                Integer capacidad;
+                    String query2 = "SELECT capacidad FROM vueloGenerico WHERE nVuelo = ?";
                     PreparedStatement s2 = connection.prepareStatement(query2);
                     s2.setInt(1, dateParams.getnVuelo());
                     ResultSet rs2 = s2.executeQuery();
@@ -113,7 +119,7 @@ public class MySqlInsertReservationDao implements InsertReservationDao {
                             toReturn += ThreadLocalRandom.current().nextInt(0, 1 + 1);
                         }
                     }
-                }
+                
             }
             return toReturn;
         } catch (SQLException ex) {

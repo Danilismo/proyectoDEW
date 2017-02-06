@@ -46,6 +46,18 @@
 {
      margin:0px;
      padding:0px;
+     overflow:visible;
+}
+li
+{
+     font-size:10px;
+}
+.timepicker
+{
+     text-align: center;
+}
+div
+{
      overflow:hidden;
 }
 #aside #airlines

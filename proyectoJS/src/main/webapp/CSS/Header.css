@@ -56,6 +56,7 @@
 #header #nav1 input[type="button"]:hover
 {
      text-decoration: underline;
+     background-color:#6495ED;
 }
 #header #nav1
 {
@@ -72,10 +73,20 @@
 }
 #header #nav2
 {
-     display:none;
+     display:flex;
+     position:absolute;
+     top:0px;
+     right:0px;
      order:2;
 }
-@media only screen and (min-width:760px)
+#header #nav2 #lenguaje
+{
+     position:absolute;
+     top:0px;
+     right:0px;
+     font-size:90%;
+}
+@media only screen and (min-width:660px)
 {
      #header
      {
@@ -99,6 +110,7 @@
      #header #nav2
      {
           order:2;
+          position:relative;
           display:flex;
      }
      #header #nav1 input[type="button"]
@@ -110,6 +122,8 @@
      {
           height:30%;
           width:100%;
+          top:auto;
+          bottom:0px;
           border-radius:0px 40% 0px 0px;
           background-color:lightgray;
           color:#6495ED;

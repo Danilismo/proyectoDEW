@@ -47,7 +47,7 @@
 {
      position:relative;
      height:450px;
-     width:155px;
+     width:150px;
      background-color:white;
      border-top-left-radius: 60% 40%;
      border-top-right-radius: 60% 40%;
@@ -57,7 +57,7 @@
 #modal #bodyAvion #aButacas
 {
      height:250px;
-     border-radius:5px;
+     border-radius:40px;
      width:150px;
      border:1px solid black;
 }
@@ -90,7 +90,7 @@ body svg
      z-index:1;
 }
 
-@media only screen and (min-width:760px)
+@media only screen and (min-width:660px)
 {
      #modal
      {

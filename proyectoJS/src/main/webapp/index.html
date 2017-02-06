@@ -78,12 +78,12 @@
                                     </tr>
                                     <tr>
                                         <td widtH="50%" class="derecha" colspan="2"><label for="departure">Hora de llegada:</label></td>
-                                        <td widtH="50%" class="izquierda" colspan="2"><input id="departure"  size="1" maxlength="5" class="timepicker"></td>
+                                        <td widtH="50%" class="izquierda" colspan="2"><input id="departure"  size="5" maxlength="5" class="timepicker"></td>
 
                                     </tr>
                                     <tr>
                                         <td widtH="50%" class="derecha" colspan="2"><label for="arrive">Hora de Salida:</label></td>
-                                        <td widtH="50%" class="izquierda" colspan="2"><input id="arrive"  size="1" maxlength="5" class="timepicker"></td>
+                                        <td widtH="50%" class="izquierda" colspan="2"><input id="arrive"  size="5" maxlength="5" class="timepicker"></td>
                                     </tr>
                                     <tr>
                                         <td colspan="4">Aerolíneas deseadas</td>
@@ -95,7 +95,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="4"><input id="findButton" type="submit" value="Buscar"></td>
-                                        </td>
+                  
                                     </tr>
                                 </table>
 
@@ -109,7 +109,7 @@
                             <p>Proyecto DEW: Dani, Agoney, Uni.</p>
                         </div>
 
-                        <div id="modal">
+                         <div id="modal">
                             <div id="avion">
                                 <div id="bodyAvion">
                                     <svg id="aButacas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" height="180" width="200px">
@@ -118,12 +118,15 @@
                                 </div>
                             </div>
                             <div id="datos">
-                                <p>NºButacas: <label id="nButacas">0.</label></p>
-                                <p>Preciototal: <label id="pTotal">0€.</label></p>
-                            </div>
-                            <img onclick="openModal()" id="x" src="imagenes/x.png"/>
-                        </div>
-
+                                   <p>NºButacas: <label id="nButacas">0.</label></p>
+                                   <p>Preciototal: <label id="pTotal">0€.</label></p>
+                              </div>
+                              <img onclick="closeModal()" id="x" src="imagenes/x.png"/>
+                         </div>
+                         <div id="dialog" title="Introduzca una fecha.">
+                              <p id="fecha">Fecha: <input type="text" id="datepicker"></p>
+                              <input type="button" id="open" onclick="openModal()" value="Comprar">
+                         </div>
                         </body>
 
                         </html>

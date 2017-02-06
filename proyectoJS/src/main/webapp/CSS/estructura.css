@@ -6,6 +6,7 @@ html, body, #header, #aside , #section, #footer
      align-content: center;
      justify-content: center;
      flex-direction:column;
+     z-index:-1;
 }
 html,body
 {
@@ -14,9 +15,9 @@ html,body
      padding:0px;
      width:100%;
      background-color:white;
-     font-size:15px;
-     min-width:360px;
-     min-height:640px;
+     font-size:13px;
+     min-width:250px;
+     min-height:440px;
      overflow:hidden;
 }
 #header, #aside , #section, #footer
@@ -30,30 +31,39 @@ html,body
 {
      height:20%;
      min-height:70px;
+     z-index:0;
 }
-
+#footer
+{
+     height:10%;
+     min-height:40px;
+     z-index:1;
+}
 #aside
 {
      position:absolute;
      z-index:1;
      left:0px;
      top:20%;
-     height:80%;
-
+     height:70%;
+     z-index:0;
 }
 #section
 {
      height:70%;
-     min-height:200px;
+     min-height:190px;
 }
-#footer
+#dialog
 {
-     height:10%;
-     min-height:50px;
+     display:none;
 }
 
-@media only screen and (min-width:760px)
+@media only screen and (min-width:660px)
 {
+     html
+     {
+          font-size:120%;
+     }
      #aside
      {
           width:20%;
