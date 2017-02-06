@@ -7,6 +7,7 @@ package es.cifpcm.proyectojs.services.rest;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -21,17 +22,25 @@ import org.slf4j.LoggerFactory;
  */
 @Path("language")
 public class JsonFileSelector {
-    
+
     private final Logger logger = LoggerFactory.getLogger(FindFlight.class);
-    
+
+    @javax.ws.rs.core.Context
+    ServletContext context;
+
     @GET
     @Path("{language}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getLanguage(@PathParam("language") String language) throws FileNotFoundException
-    {
+    public String getLanguage(@PathParam("language") String language) throws FileNotFoundException {
         logger.info("JsonFileSelector_getLanguage()");
+        
+        logger.debug("context != null {}", context != null);
+        
+        String webAppPath = context.getRealPath("/");
+        logger.debug(webAppPath);
+        
         //FileReader file = new FileReader("src/main/resources/messages_es.json");
         String file = JsonFileSelector.class.getResourceAsStream("/resources/messages_es.json").toString();
         return file;
-    } 
+    }
 }
