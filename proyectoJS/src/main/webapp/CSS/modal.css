@@ -1,0 +1,106 @@
+#modal, #avion, #bodyAvion,#datos
+{
+     display:flex;
+     align-items: center;
+     justify-content: center;
+     align-content: center;
+     flex-direction:row;
+}
+
+#modal
+{
+     display:none;
+     position:absolute;
+     height:100%;
+     width:100%;
+     z-index:3;
+     background-color:lightgray;
+     border-radius:20px;
+     box-shadow: 0px 0px 100px black;
+}
+#modal #x
+{
+     position:absolute;
+     right:10px;
+     top:10px;
+     width:30px;
+     height:30px;
+}
+#modal #x:hover
+{
+     transform:scale(1.4,1.4);
+     transition:1s;
+}
+#modal #avion
+{
+     position:relative;
+     height:90%;
+     background-color:lightblue;
+     width:45%;
+     border-radius:10px;
+     border:1px solid #444;
+     background-image: url(../imagenes/airplane.png);
+     background-repeat: no-repeat;
+     background-size:100% 100%;
+}
+#modal #bodyAvion
+{
+     position:relative;
+     height:450px;
+     width:155px;
+     background-color:white;
+     border-top-left-radius: 60% 40%;
+     border-top-right-radius: 60% 40%;
+     border-bottom-right-radius: 60% 40%;
+     border-bottom-left-radius: 60% 40%;
+}
+#modal #bodyAvion #aButacas
+{
+     height:250px;
+     border-radius:5px;
+     width:150px;
+     border:1px solid black;
+}
+#modal #datos
+{
+     flex-direction:column;
+     height:90%;
+     width:45%;
+     box-sizing: border-box;
+     padding:0px;
+     color:#444;
+}
+#modal #datos p
+{
+     margin:10px;
+     font-size:100%;
+}
+body svg
+{
+     visibility:hidden;
+     position:absolute;
+     z-index:-10;
+}
+#modal svg
+{
+     padding:0px;
+     margin:0px;
+     visibility:inherit;
+     position:relative;
+     z-index:1;
+}
+
+@media only screen and (min-width:760px)
+{
+     #modal
+     {
+          height:80%;
+          width:80%;
+          top:15%;
+          left:15%;
+     }
+     #modal #datos p
+     {
+          font-size:120%;
+     }
+}

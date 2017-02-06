@@ -8,7 +8,7 @@
 }
 
 
-#section #vuelo
+#section .vuelo
 {
      height:150px;
      width:90%;
@@ -22,14 +22,14 @@
      font-size:70%;
 }
 
-#section #vuelo table
+#section .vuelo table
 {
      text-align: center;
      height:100%;
      width:100%;
 }
 
-#section #vuelo input[type="button"]
+#section .vuelo input[type="button"]
 {
      padding:5px;
      font-weight: 800;
@@ -37,7 +37,7 @@
      border-radius:5px;
      background-color:white;
 }
-#section #vuelo input[type="button"]:hover
+#section .vuelo input[type="button"]:hover
 {
      background-color:lightgray;
 }
@@ -59,9 +59,15 @@
     display:none;
 
 }
+#section .vuelo p
+{
+     padding:0px;
+     display:inline-block;
+     margin:0px;
+}
 @media only screen and (min-width:760px)
 {
-     #section #vuelo
+     #section .vuelo
      {
           font-size:100%;
      }
