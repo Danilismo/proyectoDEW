@@ -1,120 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-  <script src="scripts/js.js" type="text/javascript"></script>
-  <link rel="stylesheet" type="text/css" href="CSS/estructura.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="CSS/Header.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="CSS/aside.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="CSS/section.css" media="screen" />
-  <link rel="stylesheet" type="text/css" href="CSS/footer.css" media="screen" />
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+         <link rel="stylesheet" type="text/css" href="CSS/estructura.css" media="screen" />
+         <link rel="stylesheet" type="text/css" href="CSS/Header.css" media="screen" />
+         <link rel="stylesheet" type="text/css" href="CSS/aside.css" media="screen" />
+         <link rel="stylesheet" type="text/css" href="CSS/section.css" media="screen" />
+         <link rel="stylesheet" type="text/css" href="CSS/footer.css" media="screen" />
+         <link rel="stylesheet" type="text/css" href="CSS/modal.css" media="screen" />
+         <link rel="shortcut icon" href="imagenes/iconPlane.ico"/>
 
 
-  <title>DauneyLines</title>
-</head>
+         <title>DauneyLines</title>
+     </head>
+     <body>
+          <!--Symbolos de SVG-->
+          <svg xmlns="http://www.w3.org/2000/svg" height="200" width="200px">
+              <symbol id="butaca0" viewBox="0 0 200 200">
+                  <rect x="15" y="0"  fill="green" rx="30" ry="30" stroke="black" width="170" height="150" />
+                  <rect x="0" y="130"  fill="green" rx="20" ry="20" stroke="black" width="200" height="50" />
+            </symbol>
 
-<body>
-  <div id="header">
-    <div id="nav1">
-      <input id="ButtonSearch" type="button" value="Busca tu Vuelo">
-    </div>
+            <symbol id="butaca1" viewBox="0 0 200 200">
+                 <rect x="15" y="0"  fill="red" rx="30" ry="30" stroke="black" width="170" height="150" />
+                 <rect x="0" y="130" fill="red" rx="20" ry="20" stroke="black" width="200" height="50" />
+            </symbol>
 
-    <div id="hContenido">
-      <h1>Dauney<spam>Lines<spam></h1>
-    </div>
+            <symbol id="butaca2" viewBox="0 0 200 200">
+               <rect x="15" y="0"  fill="blue" rx="30" ry="30" stroke="black" width="170" height="150" />
+               <rect x="0" y="130" fill="blue" rx="20" ry="20" stroke="black" width="200" height="50" />
+          </symbol>
+         </svg>
 
-    <div id="nav2">
+          <div id="header">
+               <div id="nav1">
+                    <input id="ButtonSearch" type="button" value="Busca tu Vuelo">
+               </div>
 
-    </div>
+               <div id="hContenido">
+                    <h1>Dauney<spam>Lines<spam></h1>
+               </div>
 
-  </div>
+               <div id="nav2">
+                    <select name="" id="lenguaje">
+                         <option selected disabled value="Lenguaje">Lenguaje</option>
+                         <option value="Español">Español</option>
+                         <option value="Ingles">Ingles</option>
+                         <option value="Frances">Frances</option>
+                    </select>
+               </div>
 
-
-  <div id="aside">
-    <form id="startFind">
-      <table>
-        <tr>
-          <td widtH="50%" class="derecha" colspan="2"><label for="amount"> Precio:</label></td>
-          <td widtH="50%" class="izquierda" colspan="2"><input id="amount" disabled type="text" size="2"><br></td>
-        </tr>
-        <tr>
-          <td width="15%"><label id="min"></label></td>
-          <td widtH="70%" colspan="2">
-            <div id="slider"></div>
-          </td>
-          <td width="15%"><label id="max"></label></td>
-        </tr>
-        <tr>
-          <td widtH="50%" class="derecha" colspan="2"><label for="departure">Hora de llegada:</label></td>
-          <td widtH="50%" class="izquierda" colspan="2"><input id="departure"  size="1" maxlength="5" class="timepicker"></td>
-
-        </tr>
-        <tr>
-          <td widtH="50%" class="derecha" colspan="2"><label for="arrive">Hora de Salida:</label></td>
-          <td widtH="50%" class="izquierda" colspan="2"><input id="arrive"  size="1" maxlength="5" class="timepicker"></td>
-        </tr>
-        <tr>
-          <td colspan="4">Aerolíneas deseadas</td>
-        </tr>
-        <tr>
-          <td colspan="4">
-            <select multiple id="airlines"></select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4"><input id="findButton" type="submit" value="Buscar"></td>
-          </td>
-        </tr>
-      </table>
-
-    </form>
-  </div>
-
-  <div id="section">
-    <div id="vuelo">
-         <table>
-              <tr>
-                   <td rowspan="2">Vuelo Nº XXX</td>
-                   <td>Aeropuerto de origen: XXXX</td>
-                   <td>Hora de salida:00:00</td>
-                   <td>Compañía Cutres SA</td>
-                   <td rowspan="2"><input type="button" value="Comprar"></td></td>
-              </tr>
-              <tr>
-                   <td>Aeropuerto de destino: XXXXX</td>
-                   <td>Hora de llegada:13:54</td>
-                   <td>Precio:XXX€</td>
-              </tr>
-         </table>
-    </div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-    <div id="vuelo"></div>
-  </div>
-
-  <div id="footer">
-    <p>Proyecto DEW: Dani, Agoney, Uni.</p>
-  </div>
-</body>
+          </div>
 
 
+          <div id="aside">
+               <form id="startFind">
+                 <table>
+                   <tr>
+                     <td widtH="50%" class="derecha" colspan="2"><label for="amount"> Precio:</label></td>
+                     <td widtH="50%" class="izquierda" colspan="2"><input id="amount" disabled type="text" size="2"><br></td>
+                   </tr>
+                   <tr>
+                     <td width="15%"><label id="min"></label></td>
+                     <td widtH="70%" colspan="2">
+                       <div id="slider"></div>
+                     </td>
+                     <td width="15%"><label id="max"></label></td>
+                   </tr>
+                   <tr>
+                     <td widtH="50%" class="derecha" colspan="2"><label for="departure">Hora de llegada:</label></td>
+                     <td widtH="50%" class="izquierda" colspan="2"><input id="departure"  size="1" maxlength="5" class="timepicker"></td>
+
+                   </tr>
+                   <tr>
+                     <td widtH="50%" class="derecha" colspan="2"><label for="arrive">Hora de Salida:</label></td>
+                     <td widtH="50%" class="izquierda" colspan="2"><input id="arrive"  size="1" maxlength="5" class="timepicker"></td>
+                   </tr>
+                   <tr>
+                     <td colspan="4">Aerolíneas deseadas</td>
+                   </tr>
+                   <tr>
+                     <td colspan="4">
+                       <select multiple id="airlines"></select>
+                     </td>
+                   </tr>
+                   <tr>
+                     <td colspan="4"><input id="findButton" type="submit" value="Buscar"></td>
+                     </td>
+                   </tr>
+                 </table>
+
+               </form>
+          </div>
+
+          <div id="section">
+               <div class="vuelo">
+                    <table>
+                         <tr>
+                              <td rowspan="2">
+                                   <p>Vuelo Nº</p>
+                                   <p class="nVuelo">398</p>
+                              </td>
+                              <td>
+                                   <p>Aeropuerto de origen:</p>
+                                    <p class="aOrigen">XXXX</p>
+                               </td>
+                              <td>
+                                   <p>Hora de salida:</p>
+                                   <p class="horaSalida">00:00</p>
+                              </td>
+                              <td>
+                                   <p>Compañía:</p>
+                                   <p class="comp">Cutres SA</p>
+                              </td>
+                              <td rowspan="2"><input type="button" onclick="openModal(this)" value="Comprar"></td></td>
+                         </tr>
+                         <tr>
+                              <td>
+                                   <p>Aeropuerto de destino:</p>
+                                   <p class="aDestino">XXXXX</p>
+                              </td>
+                              <td>
+                                   <p>Hora de llegada:</p>
+                                   <p class="horaLlegada">XXXXX</p>
+                              </td>
+                              <td>
+                                   <p>Precio:</p>
+                                   <p class="Precio">60</p><p>€</p>
+                              </td>
+                         </tr>
+                    </table>
+               </div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+               <div class="vuelo"></div>
+          </div>
+
+          <div id="footer">
+               <p>Proyecto DEW: Dani, Agoney, Uni.</p>
+          </div>
+
+          <div id="modal">
+                <div id="avion">
+                    <div id="bodyAvion">
+                         <svg id="aButacas" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" height="180" width="200px">
+
+                         </svg>
+                    </div>
+                </div>
+               <div id="datos">
+                    <p>NºButacas: <label id="nButacas">0.</label></p>
+                    <p>Preciototal: <label id="pTotal">0€.</label></p>
+               </div>
+               <img onclick="openModal()" id="x" src="imagenes/x.png"/>
+          </div>
+
+     </body>
+     <script src="JS/js.js" type="text/javascript"></script>
 </html>
