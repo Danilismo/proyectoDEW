@@ -1,8 +1,8 @@
 function languageSelection(idioma)
 {
-	var connection;
-	var messages;
-        var language = idioma;
+	this.connection;
+	this.messages;
+        this.language = idioma;
 }
 
 languageSelection.prototype = {
@@ -20,15 +20,14 @@ languageSelection.prototype = {
     makeConnection : function()
     {
 	this.connection = new XMLHttpRequest();
+        console.log(this.language);
 	var that = this;
   	this.connection.onreadystatechange = 
         function() 
         { 
             that.checkConnection(that.connection); 
         };
-        console.log("languages/messages_" + that.language + ".json");
-  	this.connection.open("GET", "http://localhost:8080/proyectoJS/webresources/language/es", true);
-        
+  	this.connection.open("GET", "webresources/language/" + this.language , true);
   	this.connection.send();
     },
 
@@ -36,7 +35,7 @@ languageSelection.prototype = {
     {
 	if(connection.readyState == 4)
 	{             
-            console.log(connection.responseText);
+            console.log(JSON.parse(connection.responseText));
             this.messages = JSON.parse(connection.responseText);
             this.fillOutputs();
 	}
@@ -51,7 +50,13 @@ languageSelection.prototype = {
 };
 
 $(document).ready(function() {
-
-    languageSelector = new languageSelection(window.navigator.language);
+    
+    var navigatorLanguage = window.navigator.language.substring(0,2);
+    if (navigatorLanguage != "es" && navigatorLanguage != "fr" && navigatorLanguage != "en")
+    {
+        navigatorLanguage = "en";
+    }
+    
+    languageSelector = new languageSelection(navigatorLanguage);
     languageSelector.makeConnection();
 });

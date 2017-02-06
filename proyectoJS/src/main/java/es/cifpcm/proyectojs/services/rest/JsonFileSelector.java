@@ -5,8 +5,11 @@
  */
 package es.cifpcm.proyectojs.services.rest;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -31,16 +34,26 @@ public class JsonFileSelector {
     @GET
     @Path("{language}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getLanguage(@PathParam("language") String language) throws FileNotFoundException {
+    public String getLanguage(@PathParam("language") String language) throws FileNotFoundException, IOException {
         logger.info("JsonFileSelector_getLanguage()");
         
         logger.debug("context != null {}", context != null);
         
         String webAppPath = context.getRealPath("/");
-        logger.debug(webAppPath);
+        logger.debug(webAppPath + "/languages/messages_" + language + ".json");
         
-        //FileReader file = new FileReader("src/main/resources/messages_es.json");
-        String file = JsonFileSelector.class.getResourceAsStream("/resources/messages_es.json").toString();
-        return file;
+        
+        FileInputStream file = new FileInputStream(webAppPath + "/languages/messages_" + language + ".json");
+        InputStreamReader isr = new InputStreamReader(file, "utf-8");
+        String fileString = "";
+        BufferedReader b = new BufferedReader(isr);
+        String cadena;
+        while((cadena = b.readLine())!=null) {
+            fileString += cadena;
+        }
+        b.close();
+  
+        logger.debug(fileString);
+        return fileString;
     }
 }
